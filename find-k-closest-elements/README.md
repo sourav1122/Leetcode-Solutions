@@ -1,3 +1,4 @@
+[Discussion Post (created on 2/6/2021 at 13:43)](https://leetcode.com/problems/find-k-closest-elements/discuss/1310766/EASY-SOLUTION-USING-PYTHON-USING-MAX-HEAP-%3A))))  
 <h2>658. Find K Closest Elements</h2><h3>Medium</h3><hr><div><p>Given a <strong>sorted</strong> integer array <code>arr</code>, two integers <code>k</code> and <code>x</code>, return the <code>k</code> closest integers to <code>x</code> in the array. The result should also be sorted in ascending order.</p>
 
 <p>An integer <code>a</code> is closer to <code>x</code> than an integer <code>b</code> if:</p>
