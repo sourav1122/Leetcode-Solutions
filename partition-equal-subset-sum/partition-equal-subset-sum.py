@@ -3,22 +3,16 @@ class Solution:
         r=sum(nums)//2
         if sum(nums)%2!=0:
             return 0
-        d=[[-1 for i in range(r+1)]for j in range(len(nums)+1)]
-        def k(nums,r,pos):
-            if r==0:
-                #print("HA")
-                d[pos][r]=1
-                return d[pos][r]
-            if pos<0:
-                return 0
-            if d[pos][r]!=-1:
-                return d[pos][r]
-            if nums[pos-1]<=r:
-                #print(k(nums,r-nums[pos-1],pos-1),k(nums,r,pos-1))
-                d[pos][r]= k(nums,r-nums[pos-1],pos-1) or k(nums,r,pos-1)
-                return d[pos][r]
-            else:
-                d[pos][r]= k(nums,r,pos-1)
-                return d[pos][r]
-        return k(nums,r,len(nums)-1)
-                
+        d=[[0 for i in range(r+1)]for j in range(len(nums)+1)]
+        for i in range(len(d[0])):
+            d[0][i]=0
+        for i in range(len(d)):
+            d[i][0]=1
+        for i in range(1,len(d)):
+            for j in range(1,len(d[0])):
+                if j>=nums[i-1]:
+                    d[i][j]=d[i-1][j] or d[i-1][j-nums[i-1]]
+                else:
+                    d[i][j]=d[i-1][j]
+        #print(d)
+        return d[len(nums)][r]
